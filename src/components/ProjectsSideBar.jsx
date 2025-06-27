@@ -11,7 +11,7 @@ export default function ProjectSideBar() {
           + Add Project
         </button>
       </div>
-      a<ul></ul>
+      <ul></ul>
     </aside>
   );
 }
