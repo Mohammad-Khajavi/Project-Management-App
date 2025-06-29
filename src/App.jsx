@@ -4,11 +4,12 @@ import Header from "./components/Header.jsx";
 import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectSideBar from "./components/ProjectsSideBar.jsx";
+import { Match } from "storybook/internal/router";
 
 export default function App() {
   const [projectsStates, setProjectsStates] = useState({
     selectedProjectId: undefined,
-    projectArray: [],
+    projects: [],
   });
 
   function handleStartAddProject() {
@@ -21,18 +22,19 @@ export default function App() {
   }
 
   function handleAddProject(projectDate) {
+    const projectId = Math.random();
     setProjectsStates((prevState) => {
       const newProject = {
         ...projectDate,
-        id: Math.random(),
+        id: projectId,
       };
       return {
         ...prevState,
-        projectArray: [...prevState.projectArray],
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
       };
     });
   }
-  console.log(projectsStates);
   let content;
 
   if (projectsStates.selectedProjectId === null) {
@@ -43,7 +45,10 @@ export default function App() {
   return (
     <>
       <main className="h-screen my-8 flex gap-8">
-        <ProjectSideBar onStartAddProject={handleStartAddProject} />
+        <ProjectSideBar
+          onStartAddProject={handleStartAddProject}
+          projects={projectsStates.projects}
+        />
         {content}
       </main>
     </>
