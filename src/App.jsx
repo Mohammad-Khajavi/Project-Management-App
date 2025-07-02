@@ -53,11 +53,26 @@ export default function App() {
       };
     });
   }
+
+  function handleDeleteProject() {
+    setProjectsStates((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: prevState.projects.filter(
+          (project) => project.id !== prevState.selectedProjectId
+        ),
+      };
+    });
+  }
+
   const selectedProject = projectsStates.projects.find(
     (project) => project.id === projectsStates.selectedProjectId
   );
 
-  let content = <SelectedProject project={selectedProject} />;
+  let content = (
+    <SelectedProject onDelete={handleDeleteProject} project={selectedProject} />
+  );
 
   if (projectsStates.selectedProjectId === null) {
     content = (
