@@ -5,12 +5,13 @@ import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectSideBar from "./components/ProjectsSideBar.jsx";
 import SelectedProject from "./components/SelectedProject.jsx";
+import mockData from "./mockData.json";
 
 export default function App() {
   const [projectsStates, setProjectsStates] = useState({
-    selectedProjectId: undefined,
-    projects: [],
-    tasks: [],
+    selectedProjectId: 1,
+    projects: mockData.projects,
+    tasks: mockData.tasks,
   });
 
   function handleAddTask(text) {

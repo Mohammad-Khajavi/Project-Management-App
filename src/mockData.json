@@ -1,0 +1,105 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Personal Website",
+      "description": "Create a portfolio website to showcase my work.",
+      "dueDate": "2025-08-10"
+    },
+    {
+      "id": 2,
+      "title": "Grocery List App",
+      "description": "Build a mobile app to manage grocery lists.",
+      "dueDate": "2025-08-15"
+    },
+    {
+      "id": 3,
+      "title": "Workout Tracker",
+      "description": "Track gym progress and workout routines.",
+      "dueDate": "2025-08-20"
+    },
+    {
+      "id": 4,
+      "title": "E-Commerce Platform",
+      "description": "Develop a mini online store with cart and payments.",
+      "dueDate": "2025-08-25"
+    },
+    {
+      "id": 5,
+      "title": "Chat App",
+      "description": "Build a real-time chat application using WebSockets.",
+      "dueDate": "2025-08-30"
+    },
+    {
+      "id": 6,
+      "title": "Recipe Finder",
+      "description": "A web app that fetches and displays recipes by ingredients.",
+      "dueDate": "2025-09-01"
+    },
+    {
+      "id": 7,
+      "title": "Finance Tracker",
+      "description": "Track monthly income, expenses, and savings.",
+      "dueDate": "2025-09-05"
+    },
+    {
+      "id": 8,
+      "title": "Movie Review Blog",
+      "description": "Publish and manage personal movie reviews.",
+      "dueDate": "2025-09-10"
+    },
+    {
+      "id": 9,
+      "title": "Language Learning App",
+      "description": "App for vocabulary quizzes and flashcards.",
+      "dueDate": "2025-09-15"
+    },
+    {
+      "id": 10,
+      "title": "Travel Journal",
+      "description": "Document trips with images, notes, and maps.",
+      "dueDate": "2025-09-20"
+    }
+  ],
+  "tasks": [
+    { "id": 101, "projectId": 1, "text": "Design homepage layout" },
+    { "id": 102, "projectId": 1, "text": "Write about me section" },
+    { "id": 103, "projectId": 1, "text": "Deploy to GitHub Pages" },
+
+    { "id": 201, "projectId": 2, "text": "Set up React Native project" },
+    { "id": 202, "projectId": 2, "text": "Create shopping list UI" },
+    { "id": 203, "projectId": 2, "text": "Add item quantity selector" },
+
+    { "id": 301, "projectId": 3, "text": "Add exercise categories" },
+    { "id": 302, "projectId": 3, "text": "Implement calendar view" },
+    { "id": 303, "projectId": 3, "text": "Track sets and reps" },
+
+    { "id": 401, "projectId": 4, "text": "Create product catalog page" },
+    { "id": 402, "projectId": 4, "text": "Build cart functionality" },
+    { "id": 403, "projectId": 4, "text": "Integrate Stripe for payments" },
+
+    { "id": 501, "projectId": 5, "text": "Setup WebSocket server" },
+    { "id": 502, "projectId": 5, "text": "Create chat UI with messages" },
+    { "id": 503, "projectId": 5, "text": "Enable message persistence" },
+
+    { "id": 601, "projectId": 6, "text": "Set up Spoonacular API integration" },
+    { "id": 602, "projectId": 6, "text": "Design search input and results" },
+    { "id": 603, "projectId": 6, "text": "Handle loading and error states" },
+
+    { "id": 701, "projectId": 7, "text": "Design monthly summary layout" },
+    { "id": 702, "projectId": 7, "text": "Add income/expense input forms" },
+    { "id": 703, "projectId": 7, "text": "Generate pie chart with Chart.js" },
+
+    { "id": 801, "projectId": 8, "text": "Write review for 'Inception'" },
+    { "id": 802, "projectId": 8, "text": "Set up blog template" },
+    { "id": 803, "projectId": 8, "text": "Enable Markdown formatting" },
+
+    { "id": 901, "projectId": 9, "text": "Add flashcard component" },
+    { "id": 902, "projectId": 9, "text": "Create vocabulary quiz module" },
+    { "id": 903, "projectId": 9, "text": "Track progress per language" },
+
+    { "id": 1001, "projectId": 10, "text": "Build image gallery feature" },
+    { "id": 1002, "projectId": 10, "text": "Integrate Google Maps" },
+    { "id": 1003, "projectId": 10, "text": "Create trip entry form" }
+  ]
+}
