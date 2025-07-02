@@ -4,14 +4,38 @@ import Header from "./components/Header.jsx";
 import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectSideBar from "./components/ProjectsSideBar.jsx";
-import { Match } from "storybook/internal/router";
 import SelectedProject from "./components/SelectedProject.jsx";
 
 export default function App() {
   const [projectsStates, setProjectsStates] = useState({
     selectedProjectId: undefined,
     projects: [],
+    tasks: [],
   });
+
+  function handleAddTask(text) {
+    const taskId = Math.random();
+    setProjectsStates((prevState) => {
+      const newTask = {
+        text: text,
+        projectId: prevState.selectedProjectId,
+        id: taskId,
+      };
+      return {
+        ...prevState,
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
+
+  function handleDeleteTask(id) {
+    setProjectsStates((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  }
 
   function handleSelectProject(id) {
     setProjectsStates((prevState) => {
@@ -71,7 +95,15 @@ export default function App() {
   );
 
   let content = (
-    <SelectedProject onDelete={handleDeleteProject} project={selectedProject} />
+    <SelectedProject
+      onDelete={handleDeleteProject}
+      project={selectedProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={projectsStates.tasks.filter(
+        (task) => task.projectId === projectsStates.selectedProjectId
+      )}
+    />
   );
 
   if (projectsStates.selectedProjectId === null) {
@@ -88,6 +120,7 @@ export default function App() {
           onStartAddProject={handleStartAddProject}
           projects={projectsStates.projects}
           onSelectProject={handleSelectProject}
+          selectedProjectId={projectsStates.selectedProjectId}
         />
         {content}
       </main>
