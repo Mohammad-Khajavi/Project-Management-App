@@ -5,6 +5,7 @@ import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectSideBar from "./components/ProjectsSideBar.jsx";
 import { Match } from "storybook/internal/router";
+import SelectedProject from "./components/SelectedProject.jsx";
 
 export default function App() {
   const [projectsStates, setProjectsStates] = useState({
@@ -12,6 +13,14 @@ export default function App() {
     projects: [],
   });
 
+  function handleSelectProject(id) {
+    setProjectsStates((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: id,
+      };
+    });
+  }
   function handleStartAddProject() {
     setProjectsStates((prevState) => {
       return {
@@ -44,7 +53,11 @@ export default function App() {
       };
     });
   }
-  let content;
+  const selectedProject = projectsStates.projects.find(
+    (project) => project.id === projectsStates.selectedProjectId
+  );
+
+  let content = <SelectedProject project={selectedProject} />;
 
   if (projectsStates.selectedProjectId === null) {
     content = (
@@ -59,6 +72,7 @@ export default function App() {
         <ProjectSideBar
           onStartAddProject={handleStartAddProject}
           projects={projectsStates.projects}
+          onSelectProject={handleSelectProject}
         />
         {content}
       </main>
